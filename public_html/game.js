@@ -57,7 +57,7 @@ function doKeypress () {
         if ( gameShownAnswer === gameAnswer ) {
             win();
         }
-    } else {   // This happens if you loose
+    } else {   // This will happen if you loose
         wrongLetter(tempChar);
         drawSequence[ hangmanState++ ]();
         if ( hangmanState === drawSequence.length ) {
