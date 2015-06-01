@@ -9,7 +9,7 @@ function drawTorso () {
   $('.draw-area').append(
       $('<div/>').addClass("body-part legbox").append(
           $('<div/>').addClass("body-part pelvis")));
-}
+} /*draws the left arm */
 function drawLeftArm () {
  $('.armbox').prepend( $('<div/>').addClass("body-part leftarm") );
 }
