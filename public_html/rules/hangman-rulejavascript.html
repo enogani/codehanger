@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+    <title>Hangman Game</title>
+    <!-- links to fonts, stylesheets and scripts -->
+    <link href='http://fonts.googleapis.com/css?family=Play' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="../page.css">
+    <link rel="stylesheet" type="text/css" href="../lib/sweet-alert.css">
+    <script src="../lib/sweet-alert.min.js"></script>
+    <!-- end of links to fonts, stylesheets and scripts -->
+</head>
+<!--dividing a img to a divclass-->
+<div class="logo1">
+<img src="../images/codehangerlogo.png" alt="codehanger">
+</div>
+<!--end of div-->
+
+<body>
+  <!--audio insert-->
+  <audio id="background_audio" preload="auto" src="../music/musictrack1.mp3" loop="true" autobuffer>
+Unsupported in Firefox
+</audio>
+
+
+<script>
+
+function setCookie(c_name,value,exdays)
+{
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
+}
+
+function getCookie(c_name)
+{
+    var i,x,y,ARRcookies=document.cookie.split(";");
+    for (i=0;i<ARRcookies.length;i++)
+    {
+      x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+      y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+      x=x.replace(/^\s+|\s+$/g,"");
+      if (x==c_name)
+        {
+        return unescape(y);
+        }
+      }
+}
+
+var song = document.getElementsByTagName('audio')[0];
+var played = false;
+var tillPlayed = getCookie('timePlayed');
+function update()
+{
+    if(!played){
+        if(tillPlayed){
+        song.currentTime = tillPlayed;
+        song.play();
+        played = true;
+        }
+        else {
+                song.play();
+                played = true;
+        }
+    }
+
+    else {
+    setCookie('timePlayed', song.currentTime);
+    }
+}
+setInterval(update,1000);
+</script>
+<script>
+var audio = document.getElementById('background_audio');
+
+document.getElementById('mute').addEventListener('click', function (e)
+{
+    e = e || window.event;
+    audio.muted = !audio.muted;
+    e.preventDefault();
+}, false);
+</script><!--end of audio-->
+
+  <!-- Inkludera jQuery -->
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <div class='topmatter'> <!-- encloses topmatter -->
+      <div class='hang-container'>
+        <div class='scaffolding-top'></div>
+        <div class='scaffolding-left'></div>
+
+        <div class='draw-area'>
+          <div class='rope'></div>
+        </div>
+
+        <div class='scaffolding-base'></div>
+      </div>
+      <div class='side-container'>
+        <div class='container-title'>Guess A Letter!</div>
+        <div class='input-area'>
+          <input id='letter-input' type='text' maxlength='1'>
+        </div>
+      </div>
+
+      <div class='side-container'>
+        <div class='container-title'>Guessed Letters</div>
+        <div id="wrong-letters" class='input-area'></div>
+      </div>
+    </div>
+    <div class='bottommatter'>
+        <div class='word-box'>
+            <div class='word-display'>
+            </div>
+        </div>
+    </div>
+</body>
+<script src='../ui.js'></script>
+<script src='rules-javascript.js'></script>
+<script src='../game.js'></script>
+</html>

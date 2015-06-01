@@ -1,0 +1,151 @@
+body {
+    font-family: 'Play';
+    font-weight:normal;
+    font-size:16px;
+	background-color: #000;
+}
+/* Topmatter */
+.topmatter {
+    height:210px;
+}
+.bottommatter{
+    background: #000;
+    height:auto;
+}
+/* For the left 'Guess A Letter!' and 'Guessed Letter' boxes. */
+.side-container {
+    margin-top:45px;
+    margin-left:130px;
+    width:170px;
+    text-align:center;
+}
+.container-title {
+    color:#79b621;
+}
+.input-area {
+    width:75px;
+    height:31px;
+    margin:auto;
+    padding:3pt;
+    border: none;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+    background:#79b621;
+}
+#letter-input {
+    width:17pt;
+    font-size:14pt;
+    text-align:center;
+}
+.guessed-letter {
+    color: #FFF;
+}
+/* Word Box */
+.word-box {
+    width:250px;
+    margin:auto;
+    margin-top:10%;
+    text-align:center;
+}
+.word-display {
+    background:#79b621;
+    border: none;
+    height:31px;
+    padding:3pt;
+    -moz-border-radius:15px;
+    -webkit-border-radius:15px;
+    border-radius:15px;
+}
+.shown-letter {
+    border-bottom: 3px #fff solid;
+    padding: 0 2px;
+    margin: 0 2px;
+    color:#fff;
+}
+/* Hangman Area */
+.hang-container {
+    margin-top:-10px;
+    margin-right: 90px;
+    width:220px;
+    height:255px;
+    float:right;
+    background-image: url("images/hangerAY.png");
+
+}
+
+
+
+.head {
+    margin-top: 1px;
+    margin-left: 167px;
+    height:30px;
+    width:30px;
+    background-image: url("images/head.png");
+
+}
+.armbox {
+    width:100px;
+    margin-left: 132px;
+    margin-top: -2px;
+}
+.leftarm {
+    float:left;
+    height:10px;
+    width:45px;
+    background-image: url("images/leftarm.png");
+}
+.rightarm {
+    float:right;
+    height:10px;
+    width:45px;
+    background-image: url("images/rightarm.png");
+}
+.torso {
+    margin:auto;
+    width:20px;
+    height:50px;
+    background-image: url("images/torso.png");
+}
+.legbox {
+    margin-left:166px;
+    height:60px;
+    width:30px;
+}
+.leftleg {
+    float:left;
+    width:10px;
+    height:56px;
+    margin-left: 2px;
+    margin-top:-7px;
+    background-image: url("images/leftleg.png");
+}
+.rightleg {
+    float:right;
+    width:10px;
+    height:60px;
+    margin-left: 93px;
+    margin-top:-5px;
+    background-image: url("images/rightleg.png");
+}
+.pelvis {
+    margin:auto;
+    height:10px;
+    width:10px;
+    background:#000;
+}
+
+
+.logo1 {
+    display: block;
+    margin-left: 17%;
+		margin-top: 2%;
+	}
+
+.rope {
+    margin:auto;
+    height:25px;
+    width:5px;
+    margin-left: 180px;
+    margin-top: 16px;
+    background-image: url("images/rope.png");

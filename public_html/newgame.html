@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Codehanger</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-js">
+    <section class="main">
+        <header>
+            <div class="wrap"> <!-- Wrap -->
+                <div class="logo">
+                    <a href="/">
+                        <img src="upload/logo.png" width="262" height="52" alt="Codehanger">
+                    </a>
+                </div>
+                <div class="social"> <!-- Social -->
+                    <ul class="clearfix">
+                        <li><a class="social-facebook" href="#" title="facebook">facebook</a></li>
+                        <li><a class="social-twitter" href="#" title="twitter">twitter</a></li>
+                        <li><a class="social-googleplus" href="#" title="google plus">google plus</a></li>
+                        <li><a class= "mute" href="#" id= "mute" title= "mute button">toggle sound</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </header>
+        <section class="promo">
+            <div class="wrap"> <!-- Wrap -->
+                <div class="promo-text">
+                    <div class="promo-title">Choose language</div>
+                    <input type="radio" name="option" value="javascript" onclick="location.href='rules/hangman-rulejavascript.html'"/> JavaScript <br/>
+                    <input type="radio" name="option" value="html" onclick="location.href='rules/hangman-rulehtml.html'" /> HTML<br/>
+                     <input type="radio" name="option" value="css " onclick="location.href='rules/hangman-rulecss.html'"/> CSS <br/>
+            </div>
+        </section>
+        <!--scripts-->
+<script src="js/jquery.js"></script>
+<script src="js/library.js"></script>
+<script src="js/script.js"></script>
+<script src="js/retina.js"></script>
+    
+<audio id="background_audio" preload="auto" src="music/musictrack1.mp3" loop autobuffer> <!--audio-->
+	Your webbbrowser is not supported.
+</audio>
+
+<script>
+
+function setCookie(c_name,value,exdays)
+{
+    var exdate = new Date();
+    exdate.setDate( exdate.getDate() + exdays );
+    var c_value = escape( value ) + ( ( exdays==null ) ? "" : "; expires="+exdate.toUTCString() );
+    document.cookie = c_name + "=" + c_value;
+}
+
+function getCookie( c_name )
+{
+    var i,x,y,ARRcookies = document.cookie.split(";");
+    for ( i=0; i<ARRcookies.length; i++ )
+    {
+      x = ARRcookies[i].substr( 0,ARRcookies[i].indexOf( "=" ) );
+      y = ARRcookies[i].substr( ARRcookies[i].indexOf( "=" ) +1 );
+      x = x.replace( /^\s+|\s+$/g,"" );
+      if ( x == c_name )
+        {
+        	return unescape(y);
+        }
+      }
+}
+
+var song = document.getElementsByTagName('audio')[0];
+var played = false;
+var tillPlayed = getCookie('timePlayed');
+function update()
+{
+    if( !played ){
+        if(tillPlayed){
+        song.currentTime = tillPlayed;
+        song.play();
+        played = true;
+        }
+        else {
+                song.play();
+                played = true;
+        }
+    }
+
+    else {
+    setCookie( 'timePlayed', song.currentTime );
+    }
+}
+setInterval(update,1000);
+</script>
+<script>
+var audio = document.getElementById('background_audio');
+
+document.getElementById('mute').addEventListener('click', function (e)
+{
+    e = e || window.event;
+    audio.muted = !audio.muted;
+    e.preventDefault();
+}, false);
+</script>
